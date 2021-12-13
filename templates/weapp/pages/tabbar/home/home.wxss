@@ -1,0 +1,9 @@
+.name {
+  display: block;
+  background-color: transparent;
+  font-size: 16px;
+}
+.name .text {
+  color: red;
+  font-weight: bold;
+}
