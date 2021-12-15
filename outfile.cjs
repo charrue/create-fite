@@ -5347,8 +5347,8 @@ var import_minimist = __toModule(require_minimist());
 // presets.js
 var presets_default = [
   { title: "typescript library", value: "typescript-library" },
-  { title: "weapp", value: "typescript library" },
-  { title: "vue admin template", value: "typescript library" }
+  { title: "weapp", value: "weapp" },
+  { title: "vue admin template(ElementUI + vue2)", value: "vue-ele-admin-v2" }
 ];
 
 // helper/renderTemplate.js
