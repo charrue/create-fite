@@ -9,6 +9,7 @@
     </layout>
   </div>
 </template>
+
 <script>
 import Layout from "@charrue/layout";
 import Settings from "./setting";

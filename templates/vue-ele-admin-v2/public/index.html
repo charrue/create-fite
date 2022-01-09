@@ -140,5 +140,11 @@
   <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
     <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
   <% } %>
+
+  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.dependencies) { %>
+    <script>
+      !window.<%= htmlWebpackPlugin.options.cdn.dependencies[i].library %> && document.write(unescape('%3Cscript src="<%= htmlWebpackPlugin.options.cdn.dependencies[i].backup %>"%3E%3C/script%3E'))
+    </script>
+  <% } %>
 </body>
 </html>

@@ -1,8 +1,8 @@
+/* eslint-disable no-param-reassign */
 const path = require("path");
-const { cdnExternals, cdnConfig } = require("./cdn.config");
+const { cdnConfig, cdnExternals } = require("./cdn.config");
 
-const name = "Demo";
-const external = { ...cdnExternals };
+const name = "____";
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -15,6 +15,9 @@ module.exports = {
     },
   },
   publicPath: "./",
+  devServer: {
+    disableHostCheck: true,
+  },
   css: {
     loaderOptions: {
       scss: {
@@ -27,10 +30,27 @@ module.exports = {
     config.name = name;
 
     if (process.env.NODE_ENV !== "development") {
-      config.externals = external;
+      config.externals = cdnExternals;
     }
-  },
 
+    // JSX 支持
+    config.resolve.extensions = [".jsx"].concat((config.resolve && config.resolve.extensions) || []);
+    config.module.rules.push({
+      test: /\.(jsx|tsx|ts)$/,
+      loader: "babel-loader",
+    });
+
+    // 解决dart-sass打包element-ui的字体样式时的编码异常
+    const sassLoader = require.resolve("sass-loader");
+    config.module.rules.filter((rule) => rule.test.toString().indexOf("scss") !== -1)
+      .forEach((rule) => {
+        rule.oneOf.forEach((oneOfRule) => {
+          const sassLoaderIndex = oneOfRule.use.findIndex((item) => item.loader === sassLoader);
+          oneOfRule.use.splice(sassLoaderIndex, 0,
+            { loader: require.resolve("css-unicode-loader") });
+        });
+      });
+  },
   chainWebpack(config) {
     config
       .when(process.env.NODE_ENV !== "development",
@@ -39,10 +59,12 @@ module.exports = {
           config
             .plugin("ScriptExtHtmlWebpackPlugin")
             .after("html")
-            .use("script-ext-html-webpack-plugin", [{
+            .use("script-ext-html-webpack-plugin", [
+              {
               // `runtime` must same as runtimeChunk name. default is `runtime`
-              inline: /runtime\..*\.js$/,
-            }])
+                inline: /runtime\..*\.js$/,
+              },
+            ])
             .end();
           config
             .optimization.splitChunks({
@@ -64,7 +86,7 @@ module.exports = {
 
     config.plugin("html")
       .tap((args) => {
-        args[0].cdn = process.env.NODE_ENV !== "development" ? cdnConfig : [];
+        args[0].cdn = process.env.NODE_ENV !== "development" ? cdnConfig : {};
         args[0].env = process.env.NODE_ENV;
         args[0].title = name;
         return args;
