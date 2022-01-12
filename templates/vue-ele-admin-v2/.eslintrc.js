@@ -6,6 +6,9 @@ module.exports = {
     es6: true,
   },
   extends: ["@charrue/base", "@charrue/vue2"],
+  parserOptions: {
+    parser: "@babel/eslint-parser",
+  },
   rules: {
     "no-console": "off",
     "no-param-reassign": "off",
