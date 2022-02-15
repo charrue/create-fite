@@ -1,5 +1,5 @@
-describe("Name of the group", () => {
-  it("should ", () => {
-    //
-  });
-});
+import { test, expect } from "vitest";
+
+test("use vitest", () => {
+  expect("foo").toBe("foo");
+})

@@ -1,3 +1,3 @@
-export const log = () => {
-  console.log("Hello World!");
-};
+export const log = (...args: any[]) => {
+  console.log(...args)
+}
