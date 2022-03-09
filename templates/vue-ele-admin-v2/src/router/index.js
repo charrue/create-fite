@@ -1,26 +1,16 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 import Layout from "@/layout/index.vue";
+import allRoutes from "./routes";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "Index",
     component: Layout,
-    redirect: "/home",
-    children: [
-      {
-        path: "/home",
-        component: Home,
-      },
-      {
-        path: "/about",
-        component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),
-      },
-    ],
+    children: allRoutes,
   },
 ];
 
