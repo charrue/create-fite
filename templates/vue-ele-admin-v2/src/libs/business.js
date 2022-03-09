@@ -1,8 +1,9 @@
 import Cookies from "js-cookie";
+import { APP_NAME } from "../constants";
 
 export const __DEV__ = ["development", "mock"].indexOf(process.env.NODE_ENV) !== -1;
 
-const TokenKey = "__SYSTEM_TOKEN__";
+const TokenKey = `__${APP_NAME.toUpperCase()}_TOKEN__`;
 
 export function getToken() {
   return Cookies.get(TokenKey) || "";
