@@ -40,7 +40,7 @@ async function init() {
       {
         name: "projectName",
         type: targetDir ? null : "text",
-        message: "Project name",
+        message: "Please input your project name",
         initial: defaultProjectName,
         onState: (state) => {
           targetDir = String(state.value).trim() || defaultProjectName;
@@ -49,7 +49,7 @@ async function init() {
       {
         name: "preset",
         type: "select",
-        message: "选择一个模板",
+        message: "Please select a template",
         choices: presets,
       },
     ], {
