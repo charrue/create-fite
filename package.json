@@ -1,6 +1,6 @@
 {
-  "name": "create-leer",
-  "version": "0.2.2",
+  "name": "create-fite",
+  "version": "1.2.2",
   "description": "快速创建可用模板",
   "type": "module",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "build": "esbuild --bundle index.js --format=cjs --platform=node --outfile=outfile.cjs"
   },
   "bin": {
-    "create-leer": "outfile.cjs"
+    "create-fite": "outfile.cjs"
   },
   "license": "MIT",
   "devDependencies": {
