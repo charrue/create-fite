@@ -1,3 +1,0 @@
-<view bindtap="onClick">
-  <slot></slot>
-</view>
