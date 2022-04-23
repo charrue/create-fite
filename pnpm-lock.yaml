@@ -2,9 +2,9 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/eslint-parser': ^7.16.3
+  '@charrue/eslint-config-base': ^0.1.3
   esbuild: ^0.14.1
   eslint: ^8.3.0
-  eslint-config-charrue-base: ^0.1.3
   kolorist: ^1.5.0
   minimist: ^1.2.5
   prettier: ^2.5.0
@@ -12,9 +12,9 @@ specifiers:
 
 devDependencies:
   '@babel/eslint-parser': 7.17.0_eslint@8.14.0
+  '@charrue/eslint-config-base': 0.1.3
   esbuild: 0.14.38
   eslint: 8.14.0
-  eslint-config-charrue-base: 0.1.3_eslint@8.14.0
   kolorist: 1.5.1
   minimist: 1.2.6
   prettier: 2.6.2
@@ -33,6 +33,10 @@ packages:
       eslint-scope: 5.1.1
       eslint-visitor-keys: 2.1.0
       semver: 6.3.0
+    dev: true
+
+  /@charrue/eslint-config-base/0.1.3:
+    resolution: {integrity: sha512-rER5XcRIW1TTAmMJQ/CynzI+Zsm+5bNe8kqXvHDw8s0loR0SYoloyuB7MZ1SJNCsvsANNEvcTneYInJoj5LUng==}
     dev: true
 
   /@eslint/eslintrc/1.2.2:
@@ -388,16 +392,6 @@ packages:
   /escape-string-regexp/4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
-    dev: true
-
-  /eslint-config-charrue-base/0.1.3_eslint@8.14.0:
-    resolution: {integrity: sha512-jH/8I3BhOZvvS/6mLb+iW9fL50/xAK9jN2sYItHimq4fXKsza6HpYl8SZLxtTx+spd9+rbZzzCITZzgfr2Qn8g==}
-    engines: {node: '>= 6'}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    peerDependencies:
-      eslint: ^5.16.0 || ^6.8.0 || ^7.2.0
-    dependencies:
-      eslint: 8.14.0
     dev: true
 
   /eslint-scope/5.1.1:

@@ -25,5 +25,4 @@ pnpm create leer my-app
 
 - [x] [vue-ele-admin-v2](https://github.com/charrue/create-leer/blob/master/templates/vue-ele-admin-v2/README.md)
 
-- [x] [weapp](https://github.com/charrue/create-leer/blob/master/templates/weapp/README.md)
 
