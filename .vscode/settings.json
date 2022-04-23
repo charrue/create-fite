@@ -3,8 +3,5 @@
     "activityBar.background": "#531B1A",
     "titleBar.activeBackground": "#742524",
     "titleBar.activeForeground": "#FEFBFB"
-  },
-  "files.associations": {
-    "*.json": "jsonc"
-  },
+  }
 }
