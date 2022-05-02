@@ -1,6 +1,6 @@
 {
   "name": "create-fite",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "快速创建可用模板",
   "type": "module",
   "main": "index.js",

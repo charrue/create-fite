@@ -23,7 +23,7 @@ pnpm create fite my-app
 
 可供选择的模板
 
-- [TypeScript Library Starter](https://github.com/ckangwen/typescript-koa-template)
+- [TypeScript Library Starter](https://github.com/ckangwen/typescript-library-template)
 - [TypeScript Koa Starter](https://github.com/ckangwen/typescript-koa-template)
 - [Vue Admin Template(ElementUI + Vue2)](https://github.com/ckangwen/vue-ele-admin-v2-template)
 - [Vue Admin Template(ElementPlus + Vue3)](https://github.com/ckangwen/vue-ele-admin-v3-template)
