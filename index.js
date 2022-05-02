@@ -2,28 +2,10 @@
 import fs from "fs";
 import path from "path";
 import prompts from "prompts";
-import { red } from "kolorist";
+import { red, cyan, green } from "kolorist";
 import minimist from "minimist";
-
+import degit from "degit"
 import presets from "./presets";
-import renderTemplate from "./helper/renderTemplate.js";
-
-const render = ({
-  root,
-  projectName,
-  templateName,
-}) => {
-  const templateRoot = path.resolve(__dirname, "templates");
-
-  const templateDir = path.resolve(templateRoot, templateName);
-  renderTemplate(templateDir, root);
-
-  const templateDirPkg = path.resolve(templateDir, "package.json");
-  const templateDirPkgContent = fs.readFileSync(templateDirPkg, "utf-8");
-  const pkgContent = JSON.parse(templateDirPkgContent);
-  pkgContent.name = projectName;
-  fs.writeFileSync(templateDirPkg, JSON.stringify(pkgContent, null, 2));
-};
 
 async function init() {
   const cwd = process.cwd();
@@ -62,18 +44,25 @@ async function init() {
     process.exit(1);
   }
 
-  const { projectName, preset } = result;
+  const userRepo = result.preset
 
-  const root = path.join(cwd, targetDir);
+  let dist = path.join(cwd, targetDir);
 
-  if (!fs.existsSync(root)) {
-    fs.mkdirSync(root);
+  if (fs.existsSync(dist)) {
+    targetDir = `${targetDir}-1`;
+    dist = path.join(cwd, targetDir);
   }
+  const emitter = degit("ckangwen/typescript-koa-template", {
+    cache: true,
+    force: true,
+    verbose: true,
+  })
 
-  render({
-    projectName,
-    templateName: preset,
-    root,
+  emitter.clone(dist)
+  emitter.clone(dist).then(() => {
+    console.log(
+      `${green("✔ cloned")} ${cyan(userRepo)} to ${cyan(targetDir)}`
+    );
   });
 }
 
