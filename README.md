@@ -2,6 +2,7 @@
 <p align="center">fite = <b>fi</b>le templa<b>te</b></p>
 <p align="center">🛠 自用的项目模板市场 Opinionated Project Starter Template</p>
 
+[![NPM version](https://img.shields.io/npm/v/create-fite?label=)](https://www.npmjs.com/package/create-fite)
 
 ## 使用
 
@@ -22,7 +23,7 @@ pnpm create fite my-app
 
 可供选择的模板
 
-
-- ![](https://static01.imgkr.com/temp/42ee986773744a6ba4f1d9f738ee5aea.svg) [typescript-library](https://github.com/charrue/create-fite/blob/master/templates/typescript-library/README.md)
-
-- ![](https://static01.imgkr.com/temp/e893337d4fa147e39aff0548f03f0617.svg) [vue-ele-admin-v2](https://github.com/charrue/create-fite/blob/master/templates/vue-ele-admin-v2/README.md)
+- [TypeScript Library Starter](https://github.com/ckangwen/typescript-koa-template)
+- [TypeScript Koa Starter](https://github.com/ckangwen/typescript-koa-template)
+- [Vue Admin Template(ElementUI + Vue2)](https://github.com/ckangwen/vue-ele-admin-v2-template)
+- [Vue Admin Template(ElementPlus + Vue3)](https://github.com/ckangwen/vue-ele-admin-v3-template)
