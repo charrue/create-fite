@@ -10,13 +10,13 @@
 
 ```bash
 # npm
-npm create fite my-app
+npm create fite@latest my-app
 
 # yarn
-yarn create fite my-app
+yarn create fite@latest my-app
 
 # pnpm
-pnpm create fite my-app
+pnpm create fite@latest my-app
 ```
 
 <br/>
