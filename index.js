@@ -53,12 +53,11 @@ async function init() {
     dist = path.join(cwd, targetDir);
   }
   const emitter = degit(userRepo, {
-    cache: true,
+    cache: false,
     force: true,
     verbose: true,
   })
 
-  emitter.clone(dist)
   emitter.clone(dist).then(() => {
     console.log(
       `${green("✔ cloned")} ${cyan(userRepo)} to ${cyan(targetDir)}`
