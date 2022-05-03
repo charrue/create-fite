@@ -52,7 +52,7 @@ async function init() {
     targetDir = `${targetDir}-1`;
     dist = path.join(cwd, targetDir);
   }
-  const emitter = degit("ckangwen/typescript-koa-template", {
+  const emitter = degit(userRepo, {
     cache: true,
     force: true,
     verbose: true,
