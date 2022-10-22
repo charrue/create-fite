@@ -64,7 +64,7 @@ async function init() {
     console.log(`${green("✔ cloned")} ${cyan(userRepo)} to ${cyan(targetDir)}`);
 
     const ls = spawnSync("git", ["init"], { encoding: "utf-8" });
-    if (!ls || ls.stdout) {
+    if (!ls || !ls.stdout) {
       console.log(`${red("✖")} git init failed!`);
     } else {
       console.log(ls.stdout);
