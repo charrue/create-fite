@@ -6,6 +6,7 @@ import { red, cyan, green } from "kolorist";
 import minimist from "minimist";
 import degit from "degit"
 import presets from "./presets";
+import { spawnSync } from "child_process"
 
 async function init() {
   const cwd = process.cwd();
@@ -56,13 +57,63 @@ async function init() {
     cache: false,
     force: true,
     verbose: true,
-  })
-
-  emitter.clone(dist).then(() => {
-    console.log(
-      `${green("✔ cloned")} ${cyan(userRepo)} to ${cyan(targetDir)}`
-    );
   });
+
+  try {
+    await emitter.clone(dist);
+    console.log(`${green("✔ cloned")} ${cyan(userRepo)} to ${cyan(targetDir)}`);
+
+    const ls = spawnSync("git", ["init"], { encoding: "utf-8" });
+    if (!ls || ls.stdout) {
+      console.log(`${red("✖")} git init failed!`);
+    } else {
+      console.log(ls.stdout);
+    }
+
+    writePackageJson(dist, "name", targetDir);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+const readPackageJson = (dir) => {
+  const packageJsonPath = path.join(dir, "package.json");
+
+  const exists = fs.existsSync(packageJsonPath);
+
+  if (!exists) {
+    throw new Error(`package.json not found at: ${packageJsonPath}`);
+  }
+
+  const packageJsonString = fs.readFileSync(packageJsonPath, "utf8");
+
+  try {
+    return JSON.parse(packageJsonString);
+  } catch (error) {
+    throw new Error(`Cannot parse package.json: ${error.message}`);
+  }
+}
+
+const writePackageJson = (dir, key, value) => {
+  try {
+    const packageJsonPath = path.join(dir, "package.json");
+    const data = readPackageJson(dir);
+    data[key] = value;
+
+    fs.writeFileSync(
+      packageJsonPath,
+      JSON.stringify(data, null, 2),
+      {
+        encoding: "utf-8"
+      }
+    );
+  } catch (e) {
+    if (e.message) {
+      console.log(`${red(e.message)}`);
+    } else {
+      console.error(e)
+    }
+  }
 }
 
 init().catch((e) => {
