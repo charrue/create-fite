@@ -27,3 +27,4 @@ pnpm create fite@latest my-app
 - [TypeScript Koa Starter](https://github.com/ckangwen/typescript-koa-template)
 - [Vue Admin Template(ElementUI + Vue2)](https://github.com/ckangwen/vue-ele-admin-v2-template)
 - [Vue Admin Template(ElementPlus + Vue3)](https://github.com/ckangwen/vue-ele-admin-v3-template)
+- [TypeScript Monorepo Starter](https://github.com/ckangwen/ts-monorepo-starter)
