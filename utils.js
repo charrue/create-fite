@@ -43,7 +43,8 @@ export const writePackageJson = (dir, key, value) => {
   }
 };
 
-export const gitInit = () => {
+export const gitInit = (dir) => {
+  process.chdir(dir);
   const ls = spawnSync("git", ["init"], { encoding: "utf-8" });
   if (!ls || !ls.stdout) {
     console.log(`${red("✖")} git init failed!`);

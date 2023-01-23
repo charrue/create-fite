@@ -48,7 +48,7 @@ async function init() {
   let dist = path.join(cwd, targetDir);
 
   if (fs.existsSync(dist)) {
-    targetDir = `${targetDir}-1`;
+    targetDir = `${targetDir}-new`;
     dist = path.join(cwd, targetDir);
   }
   const emitter = degit(userRepo, {
@@ -63,7 +63,7 @@ async function init() {
 
     writePackageJson(dist, "name", targetDir);
 
-    gitInit();
+    gitInit(targetDir);
   } catch (e) {
     console.error(e);
   }
