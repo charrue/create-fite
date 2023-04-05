@@ -3,7 +3,7 @@ import path from "path";
 import { spawnSync } from "child_process";
 import { red } from "kolorist";
 
-export const readPackageJson = (dir) => {
+export const readPackageJson = (dir: string) => {
   const packageJsonPath = path.join(dir, "package.json");
 
   const exists = fs.existsSync(packageJsonPath);
@@ -16,12 +16,12 @@ export const readPackageJson = (dir) => {
 
   try {
     return JSON.parse(packageJsonString);
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(`Cannot parse package.json: ${error.message}`);
   }
 };
 
-export const writePackageJson = (dir, key, value) => {
+export const writePackageJson = (dir: string, key: string, value: string) => {
   try {
     const packageJsonPath = path.join(dir, "package.json");
     const data = readPackageJson(dir);
@@ -34,7 +34,7 @@ export const writePackageJson = (dir, key, value) => {
         encoding: "utf-8",
       },
     );
-  } catch (e) {
+  } catch (e: any) {
     if (e.message) {
       console.log(`${red(e.message)}`);
     } else {
@@ -43,7 +43,7 @@ export const writePackageJson = (dir, key, value) => {
   }
 };
 
-export const gitInit = (dir) => {
+export const gitInit = (dir: string) => {
   process.chdir(dir);
   const ls = spawnSync("git", ["init"], { encoding: "utf-8" });
   if (!ls || !ls.stdout) {
