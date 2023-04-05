@@ -41,5 +41,9 @@
     "eslint": "^8.3.0",
     "tsup": "^6.7.0",
     "typescript": "^5.0.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

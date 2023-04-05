@@ -4,6 +4,8 @@
 
 [![NPM version](https://img.shields.io/npm/v/create-fite?label=)](https://www.npmjs.com/package/create-fite)
 
+![](https://raw.githubusercontent.com/charrue/create-fite/master/.github/screenshot.png)
+
 ## 使用
 
 创建模板项目
